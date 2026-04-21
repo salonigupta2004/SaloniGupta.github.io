@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saloni Gupta | Technical Writer & Editor (Lilac Edition)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Variables - Lilac Palette based on your request */
+        :root {
+            --bg-body: #f8f6fc; /* The Lilac background */
+            --bg-card: #ffffff;
+            --text-main: #1f2937;
+            --text-subtle: #6b7280;
+            --accent: #9333ea; /* Purple for accents/buttons */
+            --accent-glow: rgba(147, 51, 234, 0.1);
+            --border: #e9e5f3; /* Matching subtle lilac border */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ====== Navigation Tabs ====== */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            background: rgba(248, 246, 252, 0.9); /* Lilac semi-transparent nav */
+            backdrop-filter: blur(15px);
+            padding: 0.6rem 2.5rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(147, 51, 234, 0.2);
+        }
+
+        /* ====== Hero Section ====== */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 10rem;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 10vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to bottom right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: var(--text-subtle);
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        /* ====== Sections & Cards (Matched to Lilac Theme) ====== */
+        section { padding: 8rem 0 4rem; }
+        .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 4rem; letter-spacing: -1px; }
+
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+        
+        .card { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border); 
+            padding: 2.5rem; 
+            border-radius: 28px; 
+            transition: 0.4s;
+            box-shadow: 0 1px 15px rgba(0, 0, 0, 0.01);
+        }
+        .card:hover { 
+            border-color: var(--accent); 
+            transform: translateY(-8px); 
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+        .card h3 { margin-bottom: 1rem; font-size: 1.6rem; color: var(--accent); }
+        .card p { color: var(--text-subtle); font-size: 1rem; line-height: 1.6; }
+        .tag { display: inline-block; padding: 5px 14px; background: rgba(147, 51, 234, 0.08); border: 1px solid var(--accent); border-radius: 100px; font-size: 0.75rem; margin-top: 1.5rem; color: var(--accent); }
+
+        /* ====== Skills Section ====== */
+        #skills .skill-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+        .skill-item strong { display: block; font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.3rem; }
+        .skill-item p { color: var(--text-subtle); }
+
+        /* ====== Contact ====== */
+        .contact-box {
+            background: linear-gradient(145deg, #eee, #f8f6fc);
+            padding: 4rem;
+            border-radius: 40px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .email-link {
+            font-size: 2rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-block;
+            margin: 2rem 0;
+        }
+        .email-link:hover { transform: scale(1.05); text-shadow: 0 0 15px var(--accent-glow); }
+        
+        .social-bar { display: flex; justify-content: center; gap: 1.5rem; }
+        .social-icon { 
+            font-size: 1.5rem; color: var(--text-subtle); border: 1px solid var(--border);
+            width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; transition: 0.3s; text-decoration: none;
+        }
+        .social-icon:hover { color: white; border-color: var(--accent); background: var(--accent); transform: scale(1.1); }
+
+        footer { padding: 4rem; text-align: center; color: var(--text-subtle); font-size: 0.8rem; border-top: 1px solid var(--border); }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .email-link { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="#home">Home</a>
+            <a href="#about">Philosophy</a>
+            <a href="#projects">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <p style="color: var(--accent); font-weight: 700; letter-spacing: 4px; margin-bottom: 1rem;">DELHI 110053, INDIA</p>
+            <h1>Saloni Gupta</h1>
+            <p class="tagline">technical writer and editor, adept at translating technical data into clear, user-friendly narratives—with a strict commitment to human-led, original insights.</p>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">Professional Strategy</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Technical Sourcing</h3>
+                    <p>Background in Electronics & Communication Engineering allows for researching and analyzing complex subjects like AI fundamentals and financial systems with technical depth.</p>
+                    <span class="tag">B.Tech Background</span>
+                </div>
+                <div class="card">
+                    <h3>SEO Splicing</h3>
+                    <p>Versatile writer proficient in SEO copywriting and complex keyword strategy, producing technical content with highly editorial, human-led standards.</p>
+                    <span class="tag">Keyword Strategy</span>
+                </div>
+                <div class="card">
+                    <h3>AI-Free Integrity</h3>
+                    <p>Strict commitment to Produces content without the use of artificial intelligence (AI) tools, translating technical data into genuine human understanding.</p>
+                    <span class="tag">100% Original</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Core Skills & Expertise</h2>
+            <div style="background: white; padding: 3rem; border-radius: 30px; border: 1px solid var(--border);">
+                <div class="skill-item"><strong>Human-centric Editing</strong><p>Expert at structural review and refining drafts for flow without Al intervention.</p></div>
+                <div class="skill-item"><strong>SEO Excellence</strong><p>Skilled in keyword research, SEO content strategy, and high-ranking editorial standards.</p></div>
+                <div class="skill-item"><strong>Technical Writing</strong><p>Adept at Translating complex research into a clear, engaging, and web-native register.</p></div>
+                <div class="skill-item"><strong>Peer review</strong><p>Designed standardized rubrics to improve peer writing through structure and revision lifecycle.</p></div>
+                <div class="skill-item"><strong>Narrative Analysis</strong><p>Proven ability to evaluate technical data to develop original insights and user-friendly financial narratives.</p></div>
+            </div>
+        </section>
+
+        <section id="contact" style="padding-bottom: 8rem;">
+            <div class="contact-box">
+                <p style="color: var(--accent); letter-spacing: 2px;">READY FOR NEW COLLABORATIONS</p>
+                <a href="mailto:Sg405422@gmail.com" class="email-link">Sg405422@gmail.com</a>
+                
+                <div class="social-bar">
+                    <a href="https://linkedin.com/in/saloni-gupta-b38497243/" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/sg405422" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2026 Saloni Gupta. Built with Human Code.
+    </footer>
+
+</body>
+</html>
